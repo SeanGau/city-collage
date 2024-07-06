@@ -1,3 +1,4 @@
+*.conf.py
 config.py
 
 .DS_Store
@@ -31,3 +32,5 @@ htmlcov/
 *.db
 
 thumb/
+
+*.log
