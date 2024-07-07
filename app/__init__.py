@@ -141,7 +141,7 @@ def cleardb():
   else:
     return flask.abort(403)
 
-@app.route('/update')
+@app.route('/update', methods = ['POST'])
 def update():
     r = subprocess.run(["git", "pull"], capture_output=True, text=True)
     print(r.stdout)
