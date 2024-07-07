@@ -1,5 +1,5 @@
 import flask
-import os, shutil, json, hashlib, yaml, sqlite3, locale
+import os, shutil, json, hashlib, yaml, sqlite3, locale, subprocess
 from datetime import datetime
 from PIL import Image
 
@@ -140,3 +140,10 @@ def cleardb():
     return flask.redirect('/')
   else:
     return flask.abort(403)
+
+@app.route('/update')
+def update():
+    r = subprocess.run(["git", "pull"], capture_output=True, text=True)
+    print(r.stdout)
+    return r.stdout
+    
