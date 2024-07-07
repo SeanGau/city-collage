@@ -143,7 +143,7 @@ def cleardb():
 
 @app.route('/update', methods = ['POST'])
 def update():
-    r = subprocess.run(["git", "pull"], capture_output=True, text=True)
+    r = subprocess.run(["/usr/bin/git", "pull"], capture_output=True, text=True)
     print(r.stdout)
     return r.stdout
     
