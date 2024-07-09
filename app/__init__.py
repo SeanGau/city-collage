@@ -10,7 +10,7 @@ app.jinja_env.globals['GLOBAL_TITLE'] = "City Collage"
 app.jinja_env.globals['GLOBAL_VERSION'] = datetime.now().timestamp()
 
 locale.setlocale(locale.LC_ALL, 'zh_TW.UTF-8')
-print('sqlite:', sqlite3.sqlite_version)
+
 print('regenerating thumbnails....')
 for (dirpath, dirnames, filenames) in os.walk("./app/static/source/bg"):
     for filename in filenames:
@@ -46,6 +46,11 @@ def init_db():
     with app.open_resource('schema.sql', mode='r') as f:
       db.cursor().executescript(f.read())
     db.commit()
+    
+print('sqlite:', sqlite3.sqlite_version)
+if not os.path.exists(app.config['DATABASE']):
+    init_db()
+    print('Database created.')
     
 @app.route('/')
 def index():    
@@ -132,18 +137,9 @@ def loadfile():
     else:
         return flask.render_template('loadfile.html')
     
-@app.route('/initdb')
-def cleardb():
-  if app.debug:
-    print('init db')
-    init_db()
-    return flask.redirect('/')
-  else:
-    return flask.abort(403)
 
 @app.route('/update', methods = ['POST'])
 def update():
     r = subprocess.run(["/usr/bin/git", "pull"], capture_output=True, text=True)
-    print(r.stdout)
     return r.stdout
     
