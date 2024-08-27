@@ -295,14 +295,18 @@ $(window).resize(function () {
     let c_h = $("#collage-box").height();
     if (c_w >= c_h) {
         if (c_w > c_h * 16 / 9) {
+            $("#collage-box").height($("#collage-box").height());
             $("#collage-box").width(c_h * 16 / 9);
         } else {
+            $("#collage-box").width($("#collage-box").width());
             $("#collage-box").height(c_w * 9 / 16);
         }
     } else {
         if (c_w > c_h * 9 / 16) {
+            $("#collage-box").height($("#collage-box").height());
             $("#collage-box").width(c_h * 9 / 16);
         } else {
+            $("#collage-box").width($("#collage-box").width());
             $("#collage-box").height(c_w * 16 / 9);
         }
     }
