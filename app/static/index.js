@@ -242,7 +242,7 @@ $("#download-form").on("submit", function (e) {
     var date = new Date();
     var time = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay() + 1}`;
 
-    link.download = `seedingfuture_${time}.png`;
+    link.download = `collage_${time}.png`;
     link.href = img;
     link.click();
     $("#loading").addClass("d-none");
@@ -330,8 +330,19 @@ $("#mapModal #capture").on("click", function () {
   } else {
     staticUrl = `https://maps.googleapis.com/maps/api/streetview?size=640x640&scale=2&location=${info.lat},${info.lng}&heading=${info.pov.heading}&pitch=${info.pov.pitch}&fov=${info.pov.fov}&key=${gmpApiKey}`;
   }
-  $("#image-background").css("background-image", `url(${staticUrl})`);
   $("#mapModal").modal('hide');
+  fetch(staticUrl)
+    .then(response => response.arrayBuffer())
+    .then(buffer => {
+      let binary = '';
+      const bytes = new Uint8Array(buffer);
+      const len = bytes.byteLength;
+      for (let i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      const base64String = window.btoa(binary);
+      $("#image-background").css("background-image", `url(data:image/jpeg;base64,${base64String})`);
+    });
 });
 
 
