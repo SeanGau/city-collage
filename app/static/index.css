@@ -175,6 +175,7 @@ button[title="download"] {
 
 #image-background {
     background-size: cover;
+    background-position: center center;
     background-image: url("source/bg/b2.jpg");
     opacity: 1;
     width: 100%;

@@ -8,6 +8,7 @@ app.config.from_pyfile('config.py', silent=True)
 
 app.jinja_env.globals['GLOBAL_TITLE'] = "City Collage"
 app.jinja_env.globals['GLOBAL_VERSION'] = datetime.now().timestamp()
+app.jinja_env.globals['GMP_API_KEY'] = app.config['GMP_API_KEY']
 
 locale.setlocale(locale.LC_ALL, 'zh_TW.UTF-8')
 
@@ -128,7 +129,6 @@ def works():
         print(works_data)
         return flask.render_template('works.html', works_data = works_data)
 
-
 @app.route('/loadfile', methods = ['GET', 'POST'])
 def loadfile():
     if flask.request.method == 'POST':
@@ -137,7 +137,6 @@ def loadfile():
     else:
         return flask.render_template('loadfile.html')
     
-
 @app.route('/update', methods = ['POST'])
 def update():
     r = subprocess.run(["/usr/bin/git", "pull"], capture_output=True, text=True)
