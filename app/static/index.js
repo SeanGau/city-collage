@@ -379,7 +379,7 @@ $(document).ready(function () {
     $(window).resize();
 
     let last_data = localStorage.getItem('export_data');
-    if (last_data != undefined) {
+    if (last_data && last_data != null && last_data != "") {
         loadData(JSON.parse(last_data));
     }
     setInterval(saveData, 1000);

@@ -104,12 +104,18 @@ red, .red {
 
 #source-box .source-img {
     background-color: white;
-    background-position: center center;
-    background-size: contain;
-    background-repeat: no-repeat;
     padding-top: 100%;
     filter: opacity(0.8);
     transition: .3s;
+}
+
+#source-box .source-img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    left: 0;
+    top: 0;
 }
 
 #source-box .source-img:hover {

@@ -29,8 +29,9 @@
                     </div>
                     <div class="modal-body p-4">
                         <p>
-                            素材來自於: <a href="https://github.com/Monaludao/unlimitedcities" target="_blank">unlimitedcities</a><br> 
-                            license: GNU GPL V3
+                            Github Repo: <a href="https://github.com/SeanGau/city-collage/" target="_blank">City-Collage</a><br>
+                            license: GNU GPL V3<br>
+                            部分素材來自於: <a href="https://github.com/Monaludao/unlimitedcities" target="_blank">unlimitedcities</a>
                         </p>
                     </div>
                 </div>
@@ -175,8 +176,8 @@
                                         filename='source/thumb/'+source)%}
                                         <div class="col-md-4">
                                             <a href="#">
-                                                <div class="source-img" style="background-image: url({{thumb_url}});"
-                                                    data-src={{source_url}}>
+                                                <div class="source-img" data-src={{source_url}}>
+                                                    <img src={{thumb_url}} alt="" loading="lazy">
                                                 </div>
                                             </a>
                                         </div>
