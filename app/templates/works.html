@@ -11,22 +11,22 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&amp;family=Noto+Serif+TC:wght@200;400;700&amp;display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href={{url_for( 'static' , filename='works.css' , version=GLOBAL_VERSION )}}>
+    <link rel="stylesheet" href={{url_for( 'static' , filename='index.css' , version=GLOBAL_VERSION )}}>
     <title>{{GLOBAL_TITLE}}</title>
 </head>
 
 <body>
-    <div class="container-fluid h-100">
+    <div class="container-fluid h-100 bg-light">
         <div class="row h-100 p-4">
-            <div class="col-6">
+            <div class="col-5 h-100 overflow-auto">
                 <div class="row sticky-top bg-light">
                     <div class="col d-grid">
                         <h5 id="collage-title">作品名稱 - <span></span></h5>
                         <h5 id="collage-name">作者 - <span></span></h5>
                         <a role="button" class="btn btn-primary" id="download">下載圖片</a>
+                        <hr>
                     </div>
                 </div>
-                <hr>
                 <div class="row">
                     <div class="col">
                         {% for data in works_data %}
@@ -34,10 +34,33 @@
                                 -
                                 {{data['data']['data']['title']}}</a></p>
                         {% endfor %}
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
+                        <p>pppp</p>
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-7 h-100 overflow-auto">
                 <div id="preview-box">
                     <div id="collage-box">
                         <div id="collage-background">
