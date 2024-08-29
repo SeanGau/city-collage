@@ -139,6 +139,8 @@ def loadfile():
     
 @app.route('/update', methods = ['POST'])
 def update():
-    r = subprocess.run(["/usr/bin/git", "pull"], capture_output=True, text=True)
-    return r.stdout
+    result = subprocess.run(["/usr/bin/git", "pull"], capture_output=True, text=True, cwd='./')
+    print(result.stdout, flush=True)
+    print(result.stderr, flush=True)
+    return {"result": "success"}
     
