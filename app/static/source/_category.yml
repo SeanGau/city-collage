@@ -1,8 +1,8 @@
 街道:
-  - 000
-  - 001
-  - 002
-  - 003
+  - '000'
+  - '001'
+  - '002'
+  - '003'
   - woodsign
   - waterway
   - waterfall
@@ -135,6 +135,7 @@
   - street-workout
   - velib
   - velo-taxi
+  - guitar cat.gif
 
 植物:
   - arbre-lambda
